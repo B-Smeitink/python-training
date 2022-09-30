@@ -13,9 +13,6 @@ class Person:
     def __repr__(self):
         return f'Person("{self.name}")'
 
-    def __gt__(self, other):
-        return self.height > other.height
-
     def __ge__(self, other):
         return self.height >= other.height
 
@@ -27,3 +24,8 @@ john = Person("John", 180)
 jane = Person("Jane", 170)
 
 print(jane != john)
+print(jane == john)
+print(jane >= john)
+print(jane <= john)
+print(jane > john)
+print(jane < john)
