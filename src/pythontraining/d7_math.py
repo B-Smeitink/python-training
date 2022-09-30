@@ -28,7 +28,6 @@ def create_attendee_list(registrations):
             for r in registrations]
 
 
-"test"
 def create_attendee_list2(registrations):
     return [f"{r['first_name']} {r['last_name']}"
             for r in registrations]
