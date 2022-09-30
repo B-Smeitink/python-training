@@ -26,3 +26,6 @@ def count_registrations(registrations):
 def create_attendee_list(registrations):
     return [f"{r['first_name']} {r['last_name']}"
             for r in registrations]
+
+
+"test"
