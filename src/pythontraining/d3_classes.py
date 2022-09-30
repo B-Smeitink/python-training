@@ -16,12 +16,19 @@ print(Person.population)
 class Date:
 
     def __init__(self, year: int, month: int, day: int):
-        assert 0 < month <= 12, 'month value must be [1,12]'
-        assert 0 < day <= 31, 'day value must be [1,31]'
-
+        try:
+            year = int(year)
+        except ValueError:
+            ...
         self.year = year
         self.month = month
         self.day = day
+        self.validate_month()
+
+    def validate_month(self, month):
+        if month > 12:
+            raise ValueError
+
 
     @classmethod
     def from_string(cls, date_string):
@@ -40,7 +47,7 @@ class Date:
 
 
 d1 = Date(2015, 7, 15)
-d2 = Date.from_string("2020-10-23")
+d2 = Date.from_string("2020-12-23")
 d3 = Date.from_dict({"year": 2009, "month": 12, "day": 1})
 
 print(d1)
