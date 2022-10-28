@@ -4,12 +4,18 @@ from fastapi import FastAPI
 
 app = FastAPI()
 
+db = {1: "John Doe",
+      2: "Sally Jones"}
+
 
 @app.get("/")
 def read_root():
     return {"Hello": "World"}
 
 
-@app.get("/items/{item_id}")
-def read_item(item_id: int, q: Union[str, None] = None):
-    return {"item_id": item_id, "q": q}
+@app.get("/customers/{customer_id}")
+def get_customer(customer_id: int):
+    try:
+        return db[customer_id]
+    except KeyError:
+        return f"Index {customer_id} does not exist"
